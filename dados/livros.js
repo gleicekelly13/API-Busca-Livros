@@ -5,7 +5,8 @@ const livros = [
     {id: 4, titulo: "A única coisa", autor: "Gary Keller", ano: 2021},
     {id: 5, titulo: "Sem esforço", autor: "Greg Mckeown", ano: 2021},
     {id: 6, titulo: "Nada pode me ferir", autor: "David Goggins", ano: 2023},
-    {id: 7, titulo: "O homem mais rico da Babilônia", autor: "George S. Clason", ano: 1926}
+    {id: 7, titulo: "O homem mais rico da Babilônia", autor: "George S. Clason", ano: 1926},
+    {id: 8, titulo: "Comece pelo mais difícil", auto: "Brian Tracy", ano: 2017}
 ]
 
 exports.livros = livros;
