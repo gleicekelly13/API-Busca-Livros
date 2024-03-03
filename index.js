@@ -11,7 +11,11 @@ app.get('/livros/:id', (req, res) => {
     let id= parseInt(req.params.id);
     let idLivro = buscarLivrosPorId(id);
 
-    res.json(idLivro);
+    if(idLivro) {
+        res.json(idLivro);
+    } else {
+        res.status(404).json('ID inexistente');
+    }
 });
 
 app.listen(3000, () => {
