@@ -4,7 +4,10 @@ const app = express();
 const { buscarLivros } = require("./servicos/servico");
 
 app.get('/livros', (req, res) => {
-    res.json(buscarLivros());
+    let titulo = req.query.titulo;
+    let buscaLivro = titulo ? buscarLivrosPorNome(titulo) : buscarLivros();
+    
+    res.json(buscaLivros);
 });
 
 app.get('/livros/:id', (req, res) => {
