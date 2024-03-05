@@ -10,7 +10,7 @@ app.get('/livros', (req, res) => {
     if(buscaLivro.length > 0) {
         res.json(buscaLivro);
     } else {
-        res.status(404).json({'Erro' : 'Livro não encontrado'});
+        res.status(404).json({'Erro' : 'Livro não encontrado!'});
     }
     
 });
@@ -22,7 +22,7 @@ app.get('/livros/:id', (req, res) => {
     if(idLivro) {
         res.json(idLivro);
     } else {
-        res.status(404).json({'Erro' : 'ID inexistente'});
+        res.status(404).json({'Erro' : 'ID inexistente!'});
     }
 });
 
