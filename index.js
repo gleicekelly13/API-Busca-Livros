@@ -9,10 +9,11 @@ app.get('/livros', (req, res) => {
     
     if(buscaLivro.length > 0) {
         res.json(buscaLivro);
+    } else if(isNaN(id)) {
+        res.status(400).json({'Erro' : 'Requisição inválida!'});
     } else {
         res.status(404).json({'Erro' : 'Livro não encontrado!'});
     }
-    
 });
 
 app.get('/livros/:id', (req, res) => {
