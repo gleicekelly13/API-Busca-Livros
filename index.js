@@ -1,13 +1,18 @@
 const express = require('express');
 const app = express();
 
-const { buscarLivros } = require("./servicos/servico");
+const { buscarLivros, buscarLivrosPorNome, buscarLivrosPorId } = require("./servicos/servico");
 
 app.get('/livros', (req, res) => {
     let titulo = req.query.titulo;
     let buscaLivro = titulo ? buscarLivrosPorNome(titulo) : buscarLivros();
     
-    res.json(buscaLivros);
+    if(buscaLivro.length > 0) {
+        res.json(buscaLivro);
+    } else {
+        res.status(404).json({'Erro' : 'Livro não encontrado'});
+    }
+    
 });
 
 app.get('/livros/:id', (req, res) => {
@@ -17,7 +22,7 @@ app.get('/livros/:id', (req, res) => {
     if(idLivro) {
         res.json(idLivro);
     } else {
-        res.status(404).json('ID inexistente');
+        res.status(404).json({'Erro' : 'ID inexistente'});
     }
 });
 
